@@ -45,3 +45,11 @@ GET /weatherforecast → Sample endpoint for testing
 
 6. Example:
 http://localhost:5282/api/vespa/search?query=chocolate
+
+7. Example: 
+run
+```bash
+dotnet run --urls "http://0.0.0.0:5282"
+```
+
+if you want to use expo

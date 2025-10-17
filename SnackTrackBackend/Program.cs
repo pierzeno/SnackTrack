@@ -13,6 +13,18 @@ builder.Services.AddControllers();
 // Register the VespaService + HttpClient for API calls
 builder.Services.AddHttpClient<VespaService>();
 
+// --- Add CORS ---
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("http://192.168.0.109:19006") // 👈 Expo web origin "http://localhost:8081"
+              .AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // Swagger for API docs/testing
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -26,6 +38,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Use CORS
+app.UseCors();
 
 app.UseHttpsRedirection();
 
