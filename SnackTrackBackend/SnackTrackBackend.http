@@ -1,0 +1,6 @@
+@SnackTrackBackend_HostAddress = http://localhost:5282
+
+GET {{SnackTrackBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
