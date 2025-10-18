@@ -1,2 +1,16 @@
 .DS_Store
 .vscode/
+# Visual Studio cache
+.vs/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug*/
+[Rr]elease*/
+
+# User-specific files
+*.user
+*.suo
+*.cache
+*.log
