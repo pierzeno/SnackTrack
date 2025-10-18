@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Image } from 'react-native'; // add this import at the top
 import {
   View,
   Text,
@@ -78,8 +79,12 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🛒 SnackTrack Store Map</Text>
-
+      <Text style={styles.title}>🍫 SnackTrack </Text>
+      <Image
+        source={require('../assets/images/rema.png')} // replace with your image path
+        style={styles.sponsorImage}
+        resizeMode="contain"
+        />
       <TextInput
         style={styles.input}
         placeholder="Search for a snack..."
@@ -144,54 +149,85 @@ export default function SearchScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, paddingTop: 80, backgroundColor: '#fff' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
-  input: { borderColor: '#ccc', borderWidth: 1, borderRadius: 8, padding: 10, marginBottom: 10 },
-
-  mapWrapper: {
-    marginTop: 20,
-    width: '100%',
-    height: 300,
-    borderRadius: 12,
-    overflow: 'hidden',
-    borderWidth: 2,
-    borderColor: '#ccc',
-    position: 'relative',
-  },
-
-  mapImage: {
-    flex: 1,
-  },
-
-  redDot: {
-    position: 'absolute',
-    width: 30,
-    height: 30,
-    backgroundColor: 'red',
-    borderRadius: 15,
-    opacity: 0.85,
-    borderWidth: 2,
-    borderColor: '#fff',
-    shadowColor: '#ff0000',
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
-  },
-
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalBox: {
-    width: '80%',
-    maxHeight: '60%',
-    backgroundColor: 'white',
-    borderRadius: 12,
-    padding: 20,
-  },
-  modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, textAlign: 'center' },
-  resultItem: { marginBottom: 10 },
-  itemName: { fontSize: 16, fontWeight: '500' },
-  itemAisle: { fontSize: 14, color: '#555' },
-});
+    sponsorImage: {
+        width: '100%',      // full width of the screen
+        height: 100,        // adjust height as needed
+        marginBottom: 20,   // space below image
+        borderRadius: 12,   // optional rounded corners
+      },
+    container: { 
+      flex: 1, 
+      padding: 20, 
+      paddingTop: 80, 
+      backgroundColor: '#2c2c2c', // dark-grey
+    },
+    title: { 
+      fontSize: 28, 
+      fontWeight: 'bold', 
+      marginBottom: 20, 
+      textAlign: 'center', 
+      color: '#fff', // white text
+    },
+    input: { 
+      borderColor: '#555', 
+      borderWidth: 1, 
+      borderRadius: 8, 
+      padding: 10, 
+      marginBottom: 10,
+      color: '#fff',           // input text white
+      backgroundColor: '#3a3a3a', // dark-grey input background
+    },
+  
+    mapWrapper: {
+      marginTop: 20,
+      width: '100%',
+      height: 300,
+      borderRadius: 12,
+      overflow: 'hidden',
+      borderWidth: 2,
+      borderColor: '#555',
+      position: 'relative',
+    },
+  
+    mapImage: {
+      flex: 1,
+    },
+  
+    redDot: {
+      position: 'absolute',
+      width: 30,
+      height: 30,
+      backgroundColor: 'red',
+      borderRadius: 15,
+      opacity: 0.85,
+      borderWidth: 2,
+      borderColor: '#fff',
+      shadowColor: '#ff0000',
+      shadowOpacity: 0.8,
+      shadowRadius: 8,
+    },
+  
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.8)', // darker overlay
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    modalBox: {
+      width: '80%',
+      maxHeight: '60%',
+      backgroundColor: '#2c2c2c', // dark-grey modal
+      borderRadius: 12,
+      padding: 20,
+    },
+    modalTitle: { 
+      fontSize: 20, 
+      fontWeight: 'bold', 
+      marginBottom: 10, 
+      textAlign: 'center',
+      color: '#fff', // white text
+    },
+    resultItem: { marginBottom: 10 },
+    itemName: { fontSize: 16, fontWeight: '500', color: '#fff' }, // white
+    itemAisle: { fontSize: 14, color: '#ccc' }, // light grey
+  });  
