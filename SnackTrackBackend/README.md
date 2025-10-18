@@ -122,15 +122,6 @@ GET http://localhost:5282/api/vespa/search?query=chocolate
 - `bakery desserts`
 - `protein meal replacements`
 
-### GET `/weatherforecast`
-
-Sample endpoint for testing the API.
-
-**Example Request:**
-```
-GET http://localhost:5282/weatherforecast
-```
-
 ## Architecture
 
 The backend uses:
