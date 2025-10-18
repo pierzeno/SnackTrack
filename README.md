@@ -13,9 +13,7 @@
 
 - **Smart Product Search**: Find products by name, description, or semantic similarity.
 - **In-Store Navigation**: See exactly where each item is located on the digital store map.
-- **Personalized Recommendations**: Suggest products based on your purchase history and shopping habits.
 - **Hybrid Search**: Combines text and AI embeddings for smarter results.
-- **Optional Smart Path**: Plan the shortest route through the store for all items in your shopping list.
 
 ---
 
