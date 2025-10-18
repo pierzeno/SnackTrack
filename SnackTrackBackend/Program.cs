@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://192.168.0.109:19006") // 👈 Expo web origin "http://localhost:8081"
+        policy.WithOrigins("http://10.10.30.134:19006") // 👈 Expo web origin "http://localhost:8081"
               .AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
