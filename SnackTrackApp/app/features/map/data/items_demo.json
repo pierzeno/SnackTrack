@@ -1,0 +1,6 @@
+[
+{ "id": "milk", "name": "Whole Milk 1L", "category": "Dairy", "nodeId": "a2" },
+{ "id": "apples", "name": "Red Apples", "category": "Produce", "nodeId": "a3" },
+{ "id": "chips", "name": "Potato Chips", "category": "Snacks", "nodeId": "b1" },
+{ "id": "salsa", "name": "Tomato Salsa", "category": "Snacks", "nodeId": "b2" }
+]

@@ -1,0 +1,19 @@
+{
+"canvas": { "width": 1200, "height": 800 },
+"nodes": [
+{ "id": "entrance", "x": 80, "y": 760, "neighbors": ["n1"] },
+{ "id": "n1", "x": 200, "y": 760, "neighbors": ["entrance", "n2"] },
+{ "id": "n2", "x": 400, "y": 760, "neighbors": ["n1", "a1"] },
+{ "id": "a1", "x": 400, "y": 600, "neighbors": ["n2", "a2", "b1"] },
+{ "id": "a2", "x": 400, "y": 420, "neighbors": ["a1", "a3"] },
+{ "id": "a3", "x": 400, "y": 240, "neighbors": ["a2", "b3"] },
+{ "id": "b1", "x": 600, "y": 600, "neighbors": ["a1", "b2"] },
+{ "id": "b2", "x": 800, "y": 600, "neighbors": ["b1", "b3", "checkout"] },
+{ "id": "b3", "x": 800, "y": 240, "neighbors": ["a3", "b2"] },
+{ "id": "checkout", "x": 1000, "y": 760, "neighbors": ["b2"] }
+],
+"pois": [
+{ "key": "ENTRANCE", "nodeId": "entrance" },
+{ "key": "CHECKOUT", "nodeId": "checkout" }
+]
+}

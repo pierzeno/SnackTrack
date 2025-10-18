@@ -1,0 +1,4 @@
+[
+{ "id": "oslo-akerbrygge", "name": "SnackTrack Oslo Aker Brygge", "brand": "SnackTrack", "country": "NO", "city": "Oslo", "latitude": 59.909, "longitude": 10.725 },
+{ "id": "bergen-torgallmenningen", "name": "SnackTrack Bergen Torgallmenningen", "brand": "SnackTrack", "country": "NO", "city": "Bergen", "latitude": 60.393, "longitude": 5.324 }
+]

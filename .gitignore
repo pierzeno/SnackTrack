@@ -1,3 +1,84 @@
+## SnackTrackBackend stuff
+# .NET build artifacts
+SnackTrackBackend/bin/
+SnackTrackBackend/obj/
+
+# User-specific files
+SnackTrackBackend/*.user
+SnackTrackBackend/*.suo
+SnackTrackBackend/*.userosscache
+SnackTrackBackend/*.sln.docstates
+
+# Environment files
+SnackTrackBackend/.env
+
+# VS Code settings
+SnackTrackBackend/.vscode/
+
+# Rider IDE settings
+SnackTrackBackend/.idea/
+
+# Logs
+SnackTrackBackend/*.log
+
+# Temporary files
+SnackTrackBackend/*.tmp
+
+# MacOs
+SnackTrackBackend/.DS_Store
+
+
+
+
+## SnackTrackApp stuff
+SnackTrackApp/.vscode/
+
+# dependencies
+SnackTrackApp/node_modules/
+
+# Expo
+SnackTrackApp/.expo/
+SnackTrackApp/dist/
+SnackTrackApp/web-build/
+SnackTrackApp/expo-env.d.ts
+
+# Native
+SnackTrackApp/.kotlin/
+SnackTrackApp/*.orig.*
+SnackTrackApp/*.jks
+SnackTrackApp/*.p8
+SnackTrackApp/*.p12
+SnackTrackApp/*.key
+SnackTrackApp/*.mobileprovision
+
+# Metro
+SnackTrackApp/.metro-health-check*
+
+# debug
+SnackTrackApp/npm-debug.*
+SnackTrackApp/yarn-debug.*
+SnackTrackApp/yarn-error.*
+
+# macOS
+SnackTrackApp/.DS_Store
+SnackTrackApp/*.pem
+
+# local env files
+SnackTrackApp/.env*.local
+
+# typescript
+SnackTrackApp/*.tsbuildinfo
+
+SnackTrackApp/app-example
+
+# generated native folders
+SnackTrackApp/ios
+SnackTrackApp/android
+
+
+
+
+
 .DS_Store
 .vscode/
 # Visual Studio cache
