@@ -79,12 +79,12 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🍫 SnackTrack </Text>
-      <Image
+        <Image
         source={require('../assets/images/rema.png')} // replace with your image path
         style={styles.sponsorImage}
         resizeMode="contain"
         />
+      <Text style={styles.title}>🍫 SnackTrack 🍫</Text>
       <TextInput
         style={styles.input}
         placeholder="Search for a snack..."
