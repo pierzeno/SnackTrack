@@ -3,6 +3,9 @@
 **SnackTrack** is an intelligent shopping assistant designed to enhance the in-store experience at REMA 1000. By combining **digital store maps**, **smart product search**, and **personalized recommendations**, SnackTrack helps customers find products faster and discover items they’ll love.
 
 ---
+## 🎬 Demo
+
+![App Demo](output.gif)
 
 ## 🎯 Key Features
 
