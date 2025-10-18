@@ -5,7 +5,7 @@
 ---
 ## 🎬 Demo
 
-![App Demo](demo.gif)
+![App Demo](output.gif)
 
 ## 🎯 Key Features
 
