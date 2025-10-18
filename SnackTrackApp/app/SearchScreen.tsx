@@ -16,38 +16,69 @@ export default function SearchScreen() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [highlightVisible, setHighlightVisible] = useState(false);
+  const [highlights, setHighlights] = useState<{ top: string; left: string }[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
+
+  // 🗺️ Example aisle → map position
+  const aislePositions: Record<string, { top: string; left: string }> = {
+    'candy chocolate': { top: '10%', left: '80%' },
+    'milk': { top: '70%', left: '20%' },
+    'cookies cakes': { top: '40%', left: '50%' },
+    'breakfast bakery': { top: '55%', left: '40%' },
+    'ice cream ice': { top: '80%', left: '70%' },
+    'refrigerated pudding desserts': { top: '65%', left: '25%' },
+    'bakery desserts': { top: '45%', left: '45%' },
+    'protein meal replacements': { top: '30%', left: '70%' },
+  };
 
   const handleSearch = async () => {
     if (!query.trim()) return;
+    
+    // Clear previous results and highlights immediately
+    setResults([]);
+    setHighlights([]);
     setLoading(true);
+  
     try {
       const response = await fetch(
         `http://10.10.30.134:5282/api/vespa/search?query=${encodeURIComponent(query)}`
       );
       const data = await response.json();
       const items = data.root?.children || [];
-
+  
       setResults(items);
-      if (items.length > 0) {
-        // show highlight when we get results
-        setHighlightVisible(true);
+  
+      // 🔍 Find the first aisle from the search results
+      const firstAisle = items.length > 0 
+        ? items[0].fields.aisle?.toLowerCase().trim() 
+        : null;
+      
+      // 🐛 Debug: Log what aisle we found
+      console.log('First aisle:', firstAisle);
+  
+      // 🗺️ Determine which position to highlight (only one!)
+      if (firstAisle && aislePositions[firstAisle as keyof typeof aislePositions]) {
+        const position = aislePositions[firstAisle as keyof typeof aislePositions];
+        console.log(`Highlighting position:`, position);
+        setHighlights([position]);
       } else {
-        setHighlightVisible(false);
+        console.log('No matching position found');
+        setHighlights([]);
       }
+  
     } catch (error) {
       console.error(error);
       setResults([]);
-      setHighlightVisible(false);
+      setHighlights([]);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🍫 SnackTrack</Text>
+      <Text style={styles.title}>🛒 SnackTrack Store Map</Text>
 
       <TextInput
         style={styles.input}
@@ -63,21 +94,26 @@ export default function SearchScreen() {
       {/* 🗺️ Store 3D map */}
       <View style={styles.mapWrapper}>
         <ImageBackground
-          source={require('../assets/images/storemap.png')} // 👈 your 3D store image
+          source={require('../assets/images/storemap.png')}
           style={styles.mapImage}
           resizeMode="cover"
         >
-          {highlightVisible && (
+          {highlights.map((pos, index) => (
             <TouchableOpacity
-              style={styles.redDot}
-              onPress={() => setModalVisible(true)}
-              activeOpacity={0.7}
+                key={index}
+                style={[
+                styles.redDot,
+                { top: pos.top as any, left: pos.left as any }
+                ]}
+                onPress={() => setModalVisible(true)}
+                activeOpacity={0.7}
             />
-          )}
+            ))}
+
         </ImageBackground>
       </View>
 
-      {/* 📋 Modal popup with search results */}
+      {/* 📋 Modal popup */}
       <Modal
         visible={modalVisible}
         animationType="fade"
@@ -86,7 +122,7 @@ export default function SearchScreen() {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
-            <Text style={styles.modalTitle}>🛒 Items found</Text>
+            <Text style={styles.modalTitle}>Items found:</Text>
 
             <FlatList
               data={results}
@@ -120,25 +156,25 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: '#ccc',
+    position: 'relative',
   },
 
   mapImage: {
     flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'flex-end', // top-right corner
-    padding: 20,
   },
 
   redDot: {
+    position: 'absolute',
     width: 30,
     height: 30,
     backgroundColor: 'red',
     borderRadius: 15,
-    opacity: 0.8,
+    opacity: 0.85,
+    borderWidth: 2,
+    borderColor: '#fff',
     shadowColor: '#ff0000',
     shadowOpacity: 0.8,
     shadowRadius: 8,
-    elevation: 10,
   },
 
   modalOverlay: {
@@ -153,7 +189,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 12,
     padding: 20,
-    elevation: 5,
   },
   modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, textAlign: 'center' },
   resultItem: { marginBottom: 10 },
