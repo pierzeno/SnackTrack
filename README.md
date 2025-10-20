@@ -1,6 +1,6 @@
 # SnackTrack 🚀
 
-*Start Code 2025 - REMA 1000 case 2*
+*Start Code 2025 - REMA 1000 case 2 - [NO COMMERCIAL USE]*
 
 **SnackTrack** is an intelligent shopping assistant designed to enhance the in-store experience at REMA 1000. By combining **digital store maps**, **smart product search**, and **personalized recommendations**, SnackTrack helps customers find products faster and discover items they’ll love.
 
